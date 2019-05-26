@@ -5,11 +5,13 @@ import org.springframework.context.annotation.Import;
 
 import com.se.seblog.config.BeanConfig;
 import com.se.seblog.config.DataSourceConfig;
+import com.se.seblog.config.SecurityConfig;
 
 @Configuration
 @Import({
-	DataSourceConfig.class,
 	BeanConfig.class,
+	DataSourceConfig.class,
+	SecurityConfig.class,
 })
 public class ServerConfigProvider {
 

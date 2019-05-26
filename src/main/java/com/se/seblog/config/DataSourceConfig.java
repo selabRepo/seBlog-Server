@@ -13,8 +13,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @PropertySource("classpath:datasource.properties")
-@EntityScan(value = {"com.se.seblog.blog.entity"})
-@EnableJpaRepositories(basePackages = {"com.se.seblog.blog.repository"})
+@EntityScan(value = {
+		"com.se.seblog.blog.entity",
+		"com.se.seblog.user.entity",
+})
+@EnableJpaRepositories(basePackages = {
+		"com.se.seblog.blog.repository",
+		"com.se.seblog.user.repository",
+})
 @EnableTransactionManagement
 public class DataSourceConfig {
 
