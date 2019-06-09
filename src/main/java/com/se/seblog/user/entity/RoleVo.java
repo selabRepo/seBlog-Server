@@ -1,31 +1,27 @@
-package com.se.seblog.blog.entity;
+package com.se.seblog.user.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Deprecated
 @Entity
-public class Test {
+@Table(name = "role")
+public class RoleVo {
 
+	/** role_id */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column
-	private String name;
-
-	public Test() {
-		// TODO Auto-generated constructor stub
-	}
+	@Column(name="user_id")
+	private long userID;
 	
-	public Test(long id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
+	/** role name */
+	@Column(name = "role", nullable = false)
+	private String role;
 
 	public long getId() {
 		return id;
@@ -35,12 +31,12 @@ public class Test {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getRole() {
+		return role;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 }

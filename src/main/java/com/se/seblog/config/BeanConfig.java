@@ -4,9 +4,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan({
-	"com.se.seblog.blog",
-	"com.se.seblog.user",
+@ComponentScan(basePackages = {
+	"com.se.seblog"
 })
 public class BeanConfig {
 	

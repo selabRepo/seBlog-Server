@@ -2,4 +2,4 @@
  * @author youngjun.jin
  *
  */
-package com.se.seblog.blog.entity;
+package com.se.seblog.user.entity;
