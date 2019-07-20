@@ -16,9 +16,6 @@ public class RoleVo {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name="user_id")
-	private long userID;
-	
 	/** role name */
 	@Column(name = "role", nullable = false)
 	private String role;
