@@ -2,9 +2,9 @@ package com.se.seblog.user.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.se.seblog.user.entity.UserVo;
+import com.se.seblog.user.model.UserDto;
 
-public interface UserRepository extends JpaRepository<UserVo, Long>{
+public interface UserRepository extends JpaRepository<UserDto, Long>{
 	
-	UserVo findByEmail(String email);
+	UserDto findByEmail(String email);
 }

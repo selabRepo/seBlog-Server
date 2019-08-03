@@ -1,4 +1,4 @@
-package com.se.seblog.user.entity;
+package com.se.seblog.user.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,11 +9,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "role")
-public class RoleVo {
+public class RoleDto {
 
 	/** role_id */
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	/** role name */

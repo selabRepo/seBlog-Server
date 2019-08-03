@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.se.seblog.user.entity.UserVo;
+import com.se.seblog.user.model.UserDto;
 import com.se.seblog.user.repository.UserRepository;
 
 @RestController
@@ -22,7 +22,7 @@ public class UserController {
 	
 	
 	@PostMapping("/user")
-	public String insertUser(@RequestBody UserVo user) {
+	public String insertUser(@RequestBody UserDto user) {
 		System.out.println("test");
 		String password = user.getPassword();
 		String encode = this.bCryptPasswordEncoder.encode(password);

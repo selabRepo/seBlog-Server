@@ -2,8 +2,8 @@ package com.se.seblog.user.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.se.seblog.user.entity.RoleVo;
+import com.se.seblog.user.model.RoleDto;
 
-public interface RoleRepository extends JpaRepository<RoleVo, Long>{
+public interface RoleRepository extends JpaRepository<RoleDto, Long>{
 
 }

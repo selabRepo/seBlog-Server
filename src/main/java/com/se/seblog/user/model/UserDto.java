@@ -1,4 +1,4 @@
-package com.se.seblog.user.entity;
+package com.se.seblog.user.model;
 
 import java.util.Collection;
 
@@ -16,12 +16,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class UserVo {
+public class UserDto {
 
 	/** id */
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	/** 로그인 아이디 */
@@ -45,7 +45,7 @@ public class UserVo {
 		, joinColumns= @JoinColumn(name="user_id")
 		, inverseJoinColumns=@JoinColumn(name="role_id")
 	)
-	private Collection<RoleVo> roles;
+	private Collection<RoleDto> roles;
 
 	public String getPassword() {
 		return password;
@@ -87,11 +87,11 @@ public class UserVo {
 		this.name = name;
 	}
 
-	public Collection<RoleVo> getRoles() {
+	public Collection<RoleDto> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Collection<RoleVo> roles) {
+	public void setRoles(Collection<RoleDto> roles) {
 		this.roles = roles;
 	}
 
