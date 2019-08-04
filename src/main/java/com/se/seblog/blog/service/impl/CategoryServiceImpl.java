@@ -1,9 +1,10 @@
 package com.se.seblog.blog.service.impl;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.se.seblog.blog.model.entity.CategoryDto;
@@ -43,8 +44,8 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
-	public List<CategoryDto> getAll() {
-		return this.categoryRepository.findAll();
+	public Page<CategoryDto> getAll(Pageable pageable) {
+		return this.categoryRepository.findAll(pageable);
 	}
 
 }

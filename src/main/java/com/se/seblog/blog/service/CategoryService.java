@@ -1,6 +1,7 @@
 package com.se.seblog.blog.service;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.se.seblog.DataCrudService;
 import com.se.seblog.blog.model.entity.CategoryDto;
@@ -12,12 +13,11 @@ import com.se.seblog.blog.model.entity.CategoryDto;
  */
 public interface CategoryService extends DataCrudService<CategoryDto, Long, CategoryDto> {
 
+	
 	/**
 	 * 카테고리 전체 리스트를 반환합니다.
-	 * 
-	 * @author youngjun.jin
-	 * @return 카테고리 리스트
+	 * @param pageable
+	 * @return category pages
 	 */
-	public List<CategoryDto> getAll();
-
+	public Page<CategoryDto> getAll(Pageable pageable);
 }
