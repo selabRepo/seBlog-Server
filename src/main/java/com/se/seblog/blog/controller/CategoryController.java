@@ -55,8 +55,8 @@ public class CategoryController {
 	 * @return 전체 카테고리 리스트
 	 */
 	@GetMapping(value = "/categories")
-	public List<CategoryDto> getCategorys() {
-		return this.categoryService.getAll();
+	public Page<CategoryDto> getCategorys() {
+		return this.categoryService.getAll(Pageable.unpaged());
 	}
 
 	/**
