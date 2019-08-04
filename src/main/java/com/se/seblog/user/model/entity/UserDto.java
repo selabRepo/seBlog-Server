@@ -1,24 +1,27 @@
-package com.se.seblog.user.entity;
+package com.se.seblog.user.model.entity;
 
 import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-public class UserVo {
+public class UserDto {
 
 	/** id */
 	@Id
 	@Column(name = "id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	/** 로그인 아이디 */
@@ -37,8 +40,12 @@ public class UserVo {
 	private String name;
 
 	/** role */
-	@OneToMany(cascade = CascadeType.ALL)
-	private Collection<RoleVo> roles;
+	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name="user_role"
+		, joinColumns= @JoinColumn(name="user_id")
+		, inverseJoinColumns=@JoinColumn(name="role_id")
+	)
+	private Collection<RoleDto> roles;
 
 	public String getPassword() {
 		return password;
@@ -80,11 +87,11 @@ public class UserVo {
 		this.name = name;
 	}
 
-	public Collection<RoleVo> getRoles() {
+	public Collection<RoleDto> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Collection<RoleVo> roles) {
+	public void setRoles(Collection<RoleDto> roles) {
 		this.roles = roles;
 	}
 

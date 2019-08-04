@@ -1,4 +1,4 @@
-package com.se.seblog.blog.model.dto;
+package com.se.seblog.blog.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
