@@ -5,7 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.se.seblog.blog.model.dto.BlogPostDto;
+import com.se.seblog.blog.model.entity.BlogPostDto;
 
 /**
  * 블로그 포스트 repository

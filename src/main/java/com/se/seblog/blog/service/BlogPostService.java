@@ -4,7 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import com.se.seblog.DataCrudService;
-import com.se.seblog.blog.model.dto.BlogPostDto;
+import com.se.seblog.blog.model.entity.BlogPostDto;
 
 /**
  * 블로그 포스팅 서비

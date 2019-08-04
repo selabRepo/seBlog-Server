@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.se.seblog.blog.model.dto.CategoryDto;
+import com.se.seblog.blog.model.entity.CategoryDto;
 import com.se.seblog.blog.repository.CategoryRepository;
 import com.se.seblog.blog.service.CategoryService;
 

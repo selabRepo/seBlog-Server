@@ -3,7 +3,7 @@ package com.se.seblog.blog.service;
 import java.util.List;
 
 import com.se.seblog.DataCrudService;
-import com.se.seblog.blog.model.dto.CategoryDto;
+import com.se.seblog.blog.model.entity.CategoryDto;
 
 /**
  * 카테고리 서비스
