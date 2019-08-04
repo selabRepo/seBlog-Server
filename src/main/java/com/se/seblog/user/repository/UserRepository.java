@@ -1,10 +1,14 @@
 package com.se.seblog.user.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
-import com.se.seblog.user.model.UserDto;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.se.seblog.user.model.entity.UserDto;
 
 public interface UserRepository extends JpaRepository<UserDto, Long>{
 	
-	UserDto findByEmail(String email);
+	@Query("SELECT u FROM UserDto u WHERE u.email = :email")
+	Optional<UserDto> findByEmail(String email);
 }

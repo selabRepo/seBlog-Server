@@ -1,4 +1,4 @@
-package com.se.seblog.user.model;
+package com.se.seblog.user.model.entity;
 
 import java.util.Collection;
 

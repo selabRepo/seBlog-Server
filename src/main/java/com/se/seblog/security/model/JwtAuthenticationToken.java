@@ -1,14 +1,30 @@
 package com.se.seblog.security.model;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+/**
+ * 로그인 후 JwtToken 반환 모
+ * 
+ * @author youngjun.jin
+ */
+public class JwtAuthenticationToken {
 
-public class JwtAuthenticationToken extends UsernamePasswordAuthenticationToken {
-
+	/** token */
 	private String token;
 
-	public JwtAuthenticationToken(String token) {
-		super(null, null);
+	/** token type */
+	private String tokenType;
+
+	/** userID(user table id) */
+	private long userID;
+
+	/** user ID(email) */
+	private String email;
+
+	public JwtAuthenticationToken(String token, String tokenType, long userID, String email) {
+		super();
 		this.token = token;
+		this.tokenType = tokenType;
+		this.userID = userID;
+		this.email = email;
 	}
 
 	public String getToken() {
@@ -18,15 +34,29 @@ public class JwtAuthenticationToken extends UsernamePasswordAuthenticationToken 
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
-	@Override
-	public Object getPrincipal() {
-		return null;
+
+	public String getTokenType() {
+		return tokenType;
 	}
-	
-	@Override
-	public Object getCredentials() {
-		return null;
+
+	public void setTokenType(String tokenType) {
+		this.tokenType = tokenType;
+	}
+
+	public long getUserID() {
+		return userID;
+	}
+
+	public void setUserID(long userID) {
+		this.userID = userID;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
