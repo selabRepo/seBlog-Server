@@ -51,10 +51,6 @@ public class BlogPostDto extends BaseEntity {
 	@Column(name = "created_by", nullable = false, updatable = false)
 	private String createdBy;
 
-	/** user table 아이디 */
-	@Column(name = "user_id", nullable = false, updatable = false, columnDefinition = "BIGINT UNSIGNED")
-	private long userID;
-
 	public long getId() {
 		return id;
 	}
@@ -109,14 +105,6 @@ public class BlogPostDto extends BaseEntity {
 
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
-	}
-
-	public long getUserID() {
-		return userID;
-	}
-
-	public void setUserID(long userID) {
-		this.userID = userID;
 	}
 
 	public String getThumbnailImagePath() {

@@ -26,7 +26,7 @@ import com.se.seblog.blog.service.BlogPostService;
 public class BlogPostController {
 
 	/** 블로그 포스팅 서비스 */
-	private BlogPostService blogPostService;
+	private final BlogPostService blogPostService;
 
 	/**
 	 * BlogPostController instance를 초기화 합니다.
@@ -34,7 +34,6 @@ public class BlogPostController {
 	 * @param blogPostService 블로그 포스팅 서비
 	 */
 	public BlogPostController(BlogPostService blogPostService) {
-		super();
 		this.blogPostService = blogPostService;
 	}
 
@@ -104,7 +103,7 @@ public class BlogPostController {
 	 */
 	@PutMapping("/blogs/{blogID}")
 	public String updateBlogPost(@PathVariable(value = "blogID") long id, @RequestBody BlogPostDto blogPostDto) {
-		
+
 		Optional<BlogPostDto> blogPostOpt = this.blogPostService.get(id);
 
 		if (blogPostOpt.isPresent()) {
@@ -118,6 +117,12 @@ public class BlogPostController {
 		}
 
 		throw new IllegalArgumentException("아이디에 해당하는 블로그 데이터를 찾을 수 없습니다.");
+	}
+
+	@GetMapping("/blogs/users/{userID}")
+	public Page<BlogPostDto> getBlogsByUserID(@PathVariable(value = "userID") String userID, Pageable pageable) {
+
+		return this.blogPostService.findByCreatedBy(userID, pageable);
 	}
 
 }
