@@ -2,7 +2,6 @@ package com.se.seblog.blog.service.impl;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -22,9 +21,7 @@ public class BlogPostServiceImpl implements BlogPostService {
 	/** 블로그 포스팅 repository */
 	private BlogPostRepository blogPostRepository;
 
-	@Autowired
 	public BlogPostServiceImpl(BlogPostRepository blogPostRepository) {
-		super();
 		this.blogPostRepository = blogPostRepository;
 	}
 
@@ -60,5 +57,10 @@ public class BlogPostServiceImpl implements BlogPostService {
 	@Override
 	public Page<BlogPostDto> findByCategoryID(long categoryID, Pageable pageable) {
 		return this.blogPostRepository.findByCategoryID(categoryID, pageable);
+	}
+
+	@Override
+	public Page<BlogPostDto> findByCreatedBy(String userID, Pageable pageable) {
+		return this.blogPostRepository.findByCreatedBy(userID, pageable);
 	}
 }

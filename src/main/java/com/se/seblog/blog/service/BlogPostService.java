@@ -32,4 +32,13 @@ public interface BlogPostService extends DataCrudService<BlogPostDto, Long, Blog
 	 */
 	Page<BlogPostDto> findByCategoryID(long categoryID, Pageable pageable);
 
+	/**
+	 * 사용자 아이디(블로그 작성자) 로 작성된 글 목록을 반환합니다.
+	 * 
+	 * @param userID 글 작성자 아이디
+	 * @param pageable 페이지 옵션 
+	 * @return 해당 아이디의 작성자 글 목록
+	 */
+	Page<BlogPostDto> findByCreatedBy(String userID, Pageable pageable);
+
 }

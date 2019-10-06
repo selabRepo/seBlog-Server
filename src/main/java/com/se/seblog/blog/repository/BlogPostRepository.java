@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import com.se.seblog.blog.model.entity.BlogPostDto;
 
@@ -12,6 +13,7 @@ import com.se.seblog.blog.model.entity.BlogPostDto;
  * 
  * @author youngjun.jin
  */
+@Repository
 public interface BlogPostRepository extends JpaRepository<BlogPostDto, Long> {
 	
 	/**
@@ -28,4 +30,13 @@ public interface BlogPostRepository extends JpaRepository<BlogPostDto, Long> {
 			+ " ON c.id = bp.categoryID "
 			+ " WHERE c.id = :categoryID ")
 	Page<BlogPostDto> findByCategoryID(long categoryID, Pageable pageable);
+
+	/**
+	 * 작성자 아이디를 통해 작성자의 글 목록을 반환합니다.
+	 * 
+	 * @param userID 작성자 아이디
+	 * @return 작성자 아이디에 해당하는 글 목록
+	 */
+	@Query("SELECT bp FROM BlogPostDto bp WHERE bp.createdBy = :userID")
+	Page<BlogPostDto> findByCreatedBy(String userID, Pageable pageable);
 }
