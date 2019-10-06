@@ -104,7 +104,7 @@ public class BlogPostController {
 	 */
 	@PutMapping("/blogs/{blogID}")
 	public String updateBlogPost(@PathVariable(value = "blogID") long id, @RequestBody BlogPostDto blogPostDto) {
-
+		
 		Optional<BlogPostDto> blogPostOpt = this.blogPostService.get(id);
 
 		if (blogPostOpt.isPresent()) {
@@ -113,6 +113,7 @@ public class BlogPostController {
 
 			blogPostDto.setId(targetID);
 			this.blogPostService.save(blogPostDto);
+
 			return "success";
 		}
 

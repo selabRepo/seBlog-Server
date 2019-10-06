@@ -1,5 +1,7 @@
 package com.se.seblog.user.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +37,12 @@ public class UserController {
 	 */
 	@PostMapping("/signup")
 	public String insertUser(@RequestBody UserDto user) {
-		System.out.println("test");
+		
+		Optional<UserDto> userID = this.userRepository.findByEmail(user.getEmail());
+		if(userID.isPresent()) {
+			throw new IllegalArgumentException("이미 존재하는 아이디 입니다.");
+		}
+		
 		String password = user.getPassword();
 		String encodedPassword = this.passwordEncoder.encode(password);
 		user.setPassword(encodedPassword);

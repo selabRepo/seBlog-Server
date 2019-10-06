@@ -18,37 +18,40 @@ import com.se.seblog.BaseEntity;
 @Table(name = "post")
 public class BlogPostDto extends BaseEntity {
 
-	/**  테이블 아이디*/
+	/** 테이블 아이디 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false, columnDefinition = "BIGINT UNSIGNED")
 	private long id;
 
-	/**  카테고리 아이디*/
+	/** 카테고리 아이디 */
 	@Column(name = "category_id", nullable = false, columnDefinition = "BIGINT UNSIGNED")
 	private long categoryID;
 
-	/**  포스팅 제목*/
-	@Column(name = "title", nullable = false, updatable=true)
+	/** 포스팅 제목 */
+	@Column(name = "title", nullable = false, updatable = true)
 	private String title;
 
-	/** 포스팅 내용*/
-	@Column(name = "content", nullable = false, updatable=true)
+	/** 포스팅 내용 */
+	@Column(name = "content", nullable = false, updatable = true)
 	private String content;
 
-	/**  조회수*/
-	@Column(name = "hits", nullable = false, updatable=true, columnDefinition="BIGINT UNSIGNED")
+	/** 조회수 */
+	@Column(name = "hits", nullable = false, updatable = true, columnDefinition = "BIGINT UNSIGNED")
 	private long hits;
 
-	/**  포스팅 노출 여부*/
-	@Column(name = "use_yn", nullable = false, updatable=true)
+	/** 포스팅 노출 여부 */
+	@Column(name = "use_yn", nullable = false, updatable = true)
 	private boolean useYN;
 
-	/**  작성자명*/
-	@Column(name = "created_by", nullable=false, updatable=false)
+	@Column(name = "thumbnail_image_path", updatable = true, columnDefinition = "TEXT")
+	private String thumbnailImagePath;
+
+	/** 작성자명 */
+	@Column(name = "created_by", nullable = false, updatable = false)
 	private String createdBy;
 
-	/**  user table 아이디*/
+	/** user table 아이디 */
 	@Column(name = "user_id", nullable = false, updatable = false, columnDefinition = "BIGINT UNSIGNED")
 	private long userID;
 
@@ -114,6 +117,14 @@ public class BlogPostDto extends BaseEntity {
 
 	public void setUserID(long userID) {
 		this.userID = userID;
+	}
+
+	public String getThumbnailImagePath() {
+		return thumbnailImagePath;
+	}
+
+	public void setThumbnailImagePath(String thumbnailImagePath) {
+		this.thumbnailImagePath = thumbnailImagePath;
 	}
 
 }
