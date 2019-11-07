@@ -1,6 +1,5 @@
 package com.se.seblog;
 
-import com.se.seblog.config.WebConfig;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -13,7 +12,6 @@ import com.se.seblog.config.SecurityConfig;
 	BeanConfig.class,
 	DataSourceConfig.class,
 	SecurityConfig.class,
-	WebConfig.class
 })
 public class ServerConfigProvider {
 
